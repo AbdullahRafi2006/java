@@ -1,0 +1,47 @@
+import java.util.Scanner;
+class Vehicle {
+    private String vehicleNumber, insuranceNumber, color;
+    public Vehicle(String vn, String in, String c) {
+        vehicleNumber = vn;
+        insuranceNumber = in;
+        color = c;
+    }
+    public void displayInfo() {
+        System.out.println("Vehicle Number: " + vehicleNumber);
+        System.out.println("Insurance Number: " + insuranceNumber);
+        System.out.println("Color: " + color);
+    }
+}
+class TwoWheeler extends Vehicle {
+    public TwoWheeler(String vn, String in, String c) { super(vn, in, c); }
+    public void startEngine() { System.out.println("Two-wheeler engine started."); }
+}
+class FourWheeler extends Vehicle {
+    public FourWheeler(String vn, String in, String c) { super(vn, in, c); }
+    public void startEngine() { System.out.println("Four-wheeler engine started."); }
+}
+public class VehicleApp {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter type (TwoWheeler/FourWheeler): ");
+        String type = sc.nextLine();
+        System.out.print("Vehicle Number: ");
+        String vn = sc.nextLine();
+        System.out.print("Insurance Number: ");
+        String in = sc.nextLine();
+        System.out.print("Color: ");
+        String c = sc.nextLine();
+        if (type.equalsIgnoreCase("TwoWheeler")) {
+            TwoWheeler v = new TwoWheeler(vn, in, c);
+            v.displayInfo();
+            v.startEngine();
+        } else if (type.equalsIgnoreCase("FourWheeler")) {
+            FourWheeler v = new FourWheeler(vn, in, c);
+            v.displayInfo();
+            v.startEngine();
+        } else {
+            System.out.println("Invalid type.");
+        }
+        sc.close();
+    }
+}
