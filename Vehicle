@@ -1,0 +1,28 @@
+class Vehicle {
+    private String vehicleNumber, insuranceNumber, color;
+    public Vehicle(String vn, String in, String c) {
+        vehicleNumber = vn;
+        insuranceNumber = in;
+        color = c;
+    }
+    public void displayInfo() {
+        System.out.println("Vehicle Number: " + vehicleNumber);
+        System.out.println("Insurance Number: " + insuranceNumber);
+        System.out.println("Color: " + color);
+    }
+}
+class TwoWheeler extends Vehicle {
+    public TwoWheeler(String vn, String in, String c) { super(vn, in, c); }
+    public void startEngine() { System.out.println("Two-wheeler engine started."); }
+}
+class FourWheeler extends Vehicle {
+    public FourWheeler(String vn, String in, String c) { super(vn, in, c); }
+    public void startEngine() { System.out.println("Four-wheeler engine started."); }
+}
+public class Vehicle {
+    public static void main(String[] args) {
+        FourWheeler car = new FourWheeler("43772", "500169420", "White");
+        car.displayInfo();
+        car.startEngine();
+    }
+}
